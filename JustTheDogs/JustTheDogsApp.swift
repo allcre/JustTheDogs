@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct JustTheDogsApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Settings {
+            Text("Settings or main app window")
         }
     }
 }
