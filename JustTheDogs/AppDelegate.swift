@@ -79,18 +79,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let buttonFrame = sender.frame
         let buttonScreenFrame = buttonWindow.convertToScreen(buttonFrame)
 
-        // Position at left side of button
-        let windowX = buttonScreenFrame.minX
-        let windowY = buttonScreenFrame.minY - windowSize.height
+        // Get screen bounds for width adjustment only
+        guard let screen = NSScreen.main else { return }
+        let screenFrame = screen.visibleFrame
+
+        // Calculate available space from button to right edge of screen
+        let buttonLeftEdge = buttonScreenFrame.minX
+        let screenRightEdge = screenFrame.maxX
+        let availableWidth = screenRightEdge - buttonLeftEdge
+
+        // Adjust window size if it would extend beyond screen edge
+        var adjustedWindowSize = windowSize
+        if availableWidth < windowSize.width {
+            print("Adjusting window width from \(windowSize.width) to \(availableWidth) to fit screen")
+
+            // Calculate the aspect ratio to maintain proportions
+            let aspectRatio = windowSize.width / windowSize.height
+            let newWidth = max(availableWidth - 10, 200) // Leave 10px margin, minimum 200px
+            let newHeight = newWidth / aspectRatio // Maintain aspect ratio
+
+            adjustedWindowSize = CGSize(width: newWidth, height: newHeight)
+            print("Proportionally adjusted size to: \(adjustedWindowSize)")
+        }
+
+        let windowX = buttonLeftEdge
+        let windowY = buttonScreenFrame.minY - adjustedWindowSize.height
+
+        print("Button position: \(buttonScreenFrame)")
+        print("Window position: (\(windowX), \(windowY)), size: \(adjustedWindowSize)")
 
         // Create window if it doesn't exist
         if window == nil {
-            let windowRect = NSRect(x: windowX, y: windowY, width: windowSize.width, height: windowSize.height)
+            let windowRect = NSRect(x: windowX, y: windowY, width: adjustedWindowSize.width, height: adjustedWindowSize.height)
             window = getOrBuildWindow(size: windowRect)
         }
 
         // Position and show window with the correct size immediately
-        let windowRect = NSRect(x: windowX, y: windowY, width: windowSize.width, height: windowSize.height)
+        let windowRect = NSRect(x: windowX, y: windowY, width: adjustedWindowSize.width, height: adjustedWindowSize.height)
         window?.setFrame(windowRect, display: false)
         window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
