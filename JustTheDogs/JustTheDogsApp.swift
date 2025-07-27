@@ -10,9 +10,12 @@ import SwiftUI
 @main
 struct JustTheDogsApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
+        // Use Settings scene which doesn't auto-show a window
+        // Perfect for menu bar apps that only show windows on demand
         Settings {
-            Text("Settings or main app window")
+            EmptyView()
         }
     }
 }
