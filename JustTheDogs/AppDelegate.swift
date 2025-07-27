@@ -103,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         let windowX = buttonLeftEdge
-        let windowY = buttonScreenFrame.minY - adjustedWindowSize.height
+        let windowY = buttonScreenFrame.minY - adjustedWindowSize.height + 4 // Move up 4px to eliminate gap
 
         print("Button position: \(buttonScreenFrame)")
         print("Window position: (\(windowX), \(windowY)), size: \(adjustedWindowSize)")
