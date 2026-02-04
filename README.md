@@ -26,7 +26,7 @@ A macOS menu bar application for displaying random dog images.
 ## Installation
 
 ### Download App
-1.  Go to the [Releases](https://github.com/yourusername/JustTheDogs/releases) page.
+1.  Go to the [Releases](https://github.com/allcre/JustTheDogs/releases) page.
 2.  Download `JustTheDogs.dmg`.
 3.  Open the DMG and drag **JustTheDogs** into the **Applications** folder.
 
