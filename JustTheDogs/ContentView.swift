@@ -4,11 +4,13 @@
 //
 
 import SwiftUI
+import ServiceManagement
 
 struct ContentView: View {
     var manager: DogManager
     @AppStorage("windowSizePreference") private var selectedSize: WindowSize = .small
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore = false
+    @State private var launchAtLogin = false
     
     var body: some View {
         // We use a container that hugs its content tightly.
@@ -76,16 +78,27 @@ struct ContentView: View {
             // Welcome Overlay
             if !hasLaunchedBefore {
                 ZStack {
-                    Color.black.opacity(0.7)
+                    Color.black.opacity(0.85)
                     
                     VStack(spacing: 16) {
                         Text("Welcome to JustTheDogs")
                             .font(.headline)
                             .foregroundStyle(.white)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 10) {
                             Label("Click dog to refresh", systemImage: "hand.tap")
                             Label("Right-click for options", systemImage: "menucard")
+                            
+                            Toggle("Launch at Login", isOn: Binding(
+                                get: { launchAtLogin },
+                                set: { newValue in
+                                    launchAtLogin = newValue
+                                    toggleLaunchAtLogin(enabled: newValue)
+                                }
+                            ))
+                            .toggleStyle(.switch)
+                            .controlSize(.small)
+                            .padding(.top, 4)
                         }
                         .font(.caption)
                         .foregroundStyle(.white.opacity(0.9))
@@ -110,6 +123,9 @@ struct ContentView: View {
                     .padding(24)
                 }
                 .transition(.opacity)
+                .onAppear {
+                    launchAtLogin = SMAppService.mainApp.status == .enabled
+                }
             }
         }
         // Fixed: Ensure the parent container has no padding and background color
@@ -122,6 +138,21 @@ struct ContentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 manager.advanceToNextDog()
             }
+        }
+    }
+    
+    private func toggleLaunchAtLogin(enabled: Bool) {
+        do {
+            if enabled {
+                if SMAppService.mainApp.status == .enabled { return }
+                try SMAppService.mainApp.register()
+            } else {
+                if SMAppService.mainApp.status == .notRegistered { return }
+                try SMAppService.mainApp.unregister()
+            }
+        } catch {
+            print("Failed to toggle Launch at Login: \(error.localizedDescription)")
+            launchAtLogin = !enabled
         }
     }
     

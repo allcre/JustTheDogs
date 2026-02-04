@@ -15,8 +15,7 @@ project.xcworkspace/xcuserdata/
 *.xccheckout
 
 # Logs
-*.log
-build_output_*.log
+logs/
 
 # Temp
 docs/PHASE_*_PLAN.md

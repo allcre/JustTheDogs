@@ -37,5 +37,10 @@ A macOS menu bar application for displaying random dog images.
 xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Debug -derivedDataPath ./build
 ```
 
+**Note:** Clean builds will overwrite the app icon. To restore it, run:
+```bash
+./fix_app_icon.sh
+```
+
 ## Credits
 Uses the [Dog CEO API](https://dog.ceo/dog-api/).
