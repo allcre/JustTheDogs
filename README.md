@@ -5,24 +5,6 @@ A macOS menu bar application for displaying random dog images.
 <img width="1440" height="900" alt="JustTheDogs Screenshot" src="https://github.com/user-attachments/assets/f087169f-2f5f-4921-9e44-f067d80127e3" />
 
 
-## Features
-
-- **MenuBarExtra Integration:** Operates as a background accessory app without a Dock icon.
-- **Image Buffering:** Pre-fetches the next image in the background to ensure immediate display on interaction.
-- **Dynamic Layout:** The window dimensions adjust to match the source image aspect ratio.
-- **User Interactions:**
-    - Click image: Refresh content.
-    - Right-click image: Context menu (Copy to clipboard, Save to Downloads, Preferences, Quit).
-- **Settings:** Persistent window size configuration (Small, Medium, Large) and "Launch at Login" support.
-- **Onboarding:** Displays a one-time overlay explaining controls and credits.
-
-## Tech Stack
-
-- **Swift 5.9+ / SwiftUI**
-- **Observation Framework** for state management.
-- **ServiceManagement (SMAppService)** for login item registration.
-- **Dog CEO API** for image sourcing.
-
 ## Installation
 
 ### Download App
@@ -46,6 +28,24 @@ Run this command to manually remove the macOS quarantine flag:
 ```bash
 xattr -cr /Applications/JustTheDogs.app
 ```
+
+## Features
+
+- **MenuBarExtra Integration:** Operates as a background accessory app without a Dock icon.
+- **Image Buffering:** Pre-fetches the next image in the background to ensure immediate display on interaction.
+- **Dynamic Layout:** The window dimensions adjust to match the source image aspect ratio.
+- **User Interactions:**
+    - Click image: Refresh content.
+    - Right-click image: Context menu (Copy to clipboard, Save to Downloads, Preferences, Quit).
+- **Settings:** Persistent window size configuration (Small, Medium, Large) and "Launch at Login" support.
+- **Onboarding:** Displays a one-time overlay explaining controls and credits.
+
+## Tech Stack
+
+- **Swift 5.9+ / SwiftUI**
+- **Observation Framework** for state management.
+- **ServiceManagement (SMAppService)** for login item registration.
+- **Dog CEO API** for image sourcing.
 
 ## Development
 
