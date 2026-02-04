@@ -26,9 +26,21 @@ A macOS menu bar application for displaying random dog images.
 
 ### Download App
 1.  Go to the [Releases](https://github.com/yourusername/JustTheDogs/releases) page.
-2.  Download `JustTheDogs.zip`.
-3.  Unzip and drag `JustTheDogs.app` to your Applications folder.
-4.  **Note:** Since this app is not notarized by Apple, you may need to right-click the app and select **Open** the first time you run it.
+2.  Download `JustTheDogs.dmg`.
+3.  Open the DMG and drag **JustTheDogs** into the **Applications** folder.
+
+### "Unverified Developer" Warning?
+Because this app is open-source and not signed with a $99/year Apple ID, macOS might block it. To open it:
+1.  **Right-click** (or Control-click) the app in your Applications folder.
+2.  Select **Open**.
+3.  Click **Open** in the dialog box.
+*(You only need to do this once.)*
+
+### Still Blocked? ("App is damaged")
+If macOS says the app is damaged or refuses to open, run this command in Terminal to remove the quarantine attribute:
+```bash
+xattr -cr /Applications/JustTheDogs.app
+```
 
 ## Development
 
@@ -51,7 +63,7 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Deb
 ```
 
 ### Packaging for Distribution
-To create a distributable `.zip` file:
+To create a distributable `.dmg` installer:
 ```bash
 # 1. Build Release Version
 xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Release -derivedDataPath ./build clean build
@@ -59,9 +71,8 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Rel
 # 2. Patch Icon
 ./fix_app_icon.sh Release
 
-# 3. Zip it
-cd build/Build/Products/Release
-zip -r ../../../JustTheDogs.zip JustTheDogs.app
+# 3. Create DMG
+./package_dmg.sh
 ```
 
 ## Credits

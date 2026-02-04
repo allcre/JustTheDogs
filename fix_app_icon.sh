@@ -98,6 +98,8 @@ cp "$ICNS_PATH" "$APP_PATH/Contents/Resources/"
 # 4. Update Info.plist
 echo "Updating Info.plist..."
 plutil -replace CFBundleIconFile -string "AppIcon" "$APP_PATH/Contents/Info.plist"
+# Force Hide Dock Icon (LSUIElement)
+plutil -replace LSUIElement -bool true "$APP_PATH/Contents/Info.plist"
 
 # 5. Re-sign App (Crucial fix for crash)
 echo "Re-signing application..."
