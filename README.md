@@ -29,15 +29,19 @@ A macOS menu bar application for displaying random dog images.
 2.  Download `JustTheDogs.dmg`.
 3.  Open the DMG and drag **JustTheDogs** into the **Applications** folder.
 
-### "Unverified Developer" Warning?
-Because this app is open-source and not signed with a $99/year Apple ID, macOS might block it. To open it:
-1.  **Right-click** (or Control-click) the app in your Applications folder.
-2.  Select **Open**.
-3.  Click **Open** in the dialog box.
-*(You only need to do this once.)*
+### "Unverified Developer" Warning
+Because this app is open-source and not signed with a $99/year Apple ID, macOS will block it by default. 
 
-### Still Blocked? ("App is damaged")
-If macOS says the app is damaged or refuses to open, run this command in Terminal to remove the quarantine attribute:
+**To open the app, you must use one of the following methods:**
+
+#### Option 1: System Settings (Recommended)
+1.  Attempt to open the app (it will fail with a warning).
+2.  Go to **System Settings** -> **Privacy & Security**.
+3.  Scroll down to the **Security** section.
+4.  Click **Open Anyway** next to the message about "JustTheDogs".
+
+#### Option 2: Terminal
+Run this command to manually remove the macOS quarantine flag:
 ```bash
 xattr -cr /Applications/JustTheDogs.app
 ```
@@ -82,5 +86,4 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Rel
 ```
 
 ## Credits
-Developed by Allison.
 Uses the [Dog CEO API](https://dog.ceo/dog-api/).
