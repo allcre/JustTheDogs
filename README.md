@@ -65,5 +65,4 @@ zip -r ../../../JustTheDogs.zip JustTheDogs.app
 ```
 
 ## Credits
-Developed by Allison.
 Uses the [Dog CEO API](https://dog.ceo/dog-api/).
