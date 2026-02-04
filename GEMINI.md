@@ -10,7 +10,8 @@
 *   **User Control:**
     *   **Tap** the dog to refresh.
     *   **Right-Click** for Context Menu (Copy, Save to Downloads, Preferences, Quit).
-    *   **Preferences:** Choose default window size (Small, Medium, Large).
+    *   **Preferences:** Choose default window size (Small, Medium, Large) and toggle **Launch at Login**.
+*   **Stealth Mode:** Runs as a pure menu bar accessory, hidden from the Dock.
 *   **Responsive:** The window dynamically resizes to fit the dog's aspect ratio perfectly.
 
 ## Architecture & Technologies

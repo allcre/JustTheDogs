@@ -8,64 +8,108 @@ import SwiftUI
 struct ContentView: View {
     var manager: DogManager
     @AppStorage("windowSizePreference") private var selectedSize: WindowSize = .small
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore = false
     
     var body: some View {
         // We use a container that hugs its content tightly.
         // By removing fixed min/max on the ZStack and using it on the image instead,
         // we ensure the window doesn't reserve extra space.
-        VStack(spacing: 0) {
-            if let image = manager.currentImage {
-                Image(nsImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: calculateFrame(for: image).width,
-                           height: calculateFrame(for: image).height)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        manager.advanceToNextDog()
+        ZStack {
+            VStack(spacing: 0) {
+                if let image = manager.currentImage {
+                    Image(nsImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: calculateFrame(for: image).width,
+                               height: calculateFrame(for: image).height)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if hasLaunchedBefore {
+                                manager.advanceToNextDog()
+                            }
+                        }
+                        .contextMenu {
+                            Button {
+                                copyToClipboard(image: image)
+                            } label: {
+                                Label("Copy Image", systemImage: "doc.on.doc")
+                            }
+                            
+                            Button {
+                                saveToDownloads(image: image)
+                            } label: {
+                                Label("Save to Downloads", systemImage: "square.and.arrow.down")
+                            }
+                            
+                            Divider()
+                            
+                            SettingsLink {
+                                Label("Preferences...", systemImage: "gear")
+                            }
+                            
+                            Button("Quit JustTheDogs") {
+                                NSApplication.shared.terminate(nil)
+                            }
+                        }
+                        .transition(.opacity.combined(with: .scale(scale: 0.98)))
+                        .id(image)
+                } else if manager.isLoading {
+                    ProgressView()
+                        .controlSize(.regular)
+                        .frame(width: 200, height: 200)
+                } else if let error = manager.errorMessage {
+                    VStack(spacing: 8) {
+                        Image(systemName: "exclamationmark.triangle")
+                        Text(error)
+                            .font(.caption)
+                        Button("Retry") {
+                            manager.advanceToNextDog()
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
                     }
-                    .contextMenu {
-                        Button {
-                            copyToClipboard(image: image)
-                        } label: {
-                            Label("Copy Image", systemImage: "doc.on.doc")
-                        }
-                        
-                        Button {
-                            saveToDownloads(image: image)
-                        } label: {
-                            Label("Save to Downloads", systemImage: "square.and.arrow.down")
-                        }
-                        
-                        Divider()
-                        
-                        SettingsLink {
-                            Label("Preferences...", systemImage: "gear")
-                        }
-                        
-                        Button("Quit JustTheDogs") {
-                            NSApplication.shared.terminate(nil)
-                        }
-                    }
-                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
-                    .id(image)
-            } else if manager.isLoading {
-                ProgressView()
-                    .controlSize(.regular)
-                    .frame(width: 200, height: 200)
-            } else if let error = manager.errorMessage {
-                VStack(spacing: 8) {
-                    Image(systemName: "exclamationmark.triangle")
-                    Text(error)
-                        .font(.caption)
-                    Button("Retry") {
-                        manager.advanceToNextDog()
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
+                    .padding()
+                    .frame(width: 200, height: 150)
                 }
-                .padding()
-                .frame(width: 200, height: 150)
+            }
+            
+            // Welcome Overlay
+            if !hasLaunchedBefore {
+                ZStack {
+                    Color.black.opacity(0.7)
+                    
+                    VStack(spacing: 16) {
+                        Text("Welcome to JustTheDogs")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("Click dog to refresh", systemImage: "hand.tap")
+                            Label("Right-click for options", systemImage: "menucard")
+                        }
+                        .font(.caption)
+                        .foregroundStyle(.white.opacity(0.9))
+                        
+                        Divider().background(.white.opacity(0.3))
+                        
+                        Text("Made by Allison")
+                            .font(.caption2)
+                            .italic()
+                            .foregroundStyle(.white.opacity(0.7))
+                        
+                        Button("Got it!") {
+                            withAnimation {
+                                hasLaunchedBefore = true
+                            }
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.white)
+                        .foregroundStyle(.black)
+                        .controlSize(.small)
+                    }
+                    .padding(24)
+                }
+                .transition(.opacity)
             }
         }
         // Fixed: Ensure the parent container has no padding and background color
