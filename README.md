@@ -62,6 +62,12 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Deb
 ./fix_app_icon.sh
 ```
 
+### Resetting First Launch State
+To test the "Welcome" screen again (resetting the `hasLaunchedBefore` preference):
+```bash
+defaults delete -app /Applications/JustTheDogs.app hasLaunchedBefore
+```
+
 ### Packaging for Distribution
 To create a distributable `.dmg` installer:
 ```bash

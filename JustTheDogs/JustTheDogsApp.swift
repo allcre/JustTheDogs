@@ -10,11 +10,6 @@ import SwiftUI
 @main
 struct JustTheDogsApp: App {
     @State private var dogManager = DogManager()
-    
-    init() {
-        // Hide the app from the Dock
-        NSApplication.shared.setActivationPolicy(.accessory)
-    }
 
     var body: some Scene {
         MenuBarExtra("JustTheDogs", systemImage: "dog.fill") {
