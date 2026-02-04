@@ -6,27 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		485B68AC2E357982008897EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 485B68952E357981008897EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 485B689C2E357981008897EA;
-			remoteInfo = JustTheDogs;
-		};
-		485B68B62E357983008897EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 485B68952E357981008897EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 485B689C2E357981008897EA;
-			remoteInfo = JustTheDogs;
-		};
-/* End PBXContainerItemProxy section */
+
 
 /* Begin PBXFileReference section */
 		485B689D2E357981008897EA /* JustTheDogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustTheDogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		485B68AB2E357982008897EA /* JustTheDogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustTheDogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		485B68B52E357983008897EA /* JustTheDogsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustTheDogsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,34 +18,10 @@
 			path = JustTheDogs;
 			sourceTree = "<group>";
 		};
-		485B68AE2E357982008897EA /* JustTheDogsTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JustTheDogsTests;
-			sourceTree = "<group>";
-		};
-		485B68B82E357983008897EA /* JustTheDogsUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JustTheDogsUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		485B689A2E357981008897EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		485B68A82E357982008897EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		485B68B22E357983008897EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,8 +35,6 @@
 			isa = PBXGroup;
 			children = (
 				485B689F2E357981008897EA /* JustTheDogs */,
-				485B68AE2E357982008897EA /* JustTheDogsTests */,
-				485B68B82E357983008897EA /* JustTheDogsUITests */,
 				485B689E2E357981008897EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				485B689D2E357981008897EA /* JustTheDogs.app */,
-				485B68AB2E357982008897EA /* JustTheDogsTests.xctest */,
-				485B68B52E357983008897EA /* JustTheDogsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,52 +72,6 @@
 			productReference = 485B689D2E357981008897EA /* JustTheDogs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		485B68AA2E357982008897EA /* JustTheDogsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 485B68C22E357983008897EA /* Build configuration list for PBXNativeTarget "JustTheDogsTests" */;
-			buildPhases = (
-				485B68A72E357982008897EA /* Sources */,
-				485B68A82E357982008897EA /* Frameworks */,
-				485B68A92E357982008897EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				485B68AD2E357982008897EA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				485B68AE2E357982008897EA /* JustTheDogsTests */,
-			);
-			name = JustTheDogsTests;
-			packageProductDependencies = (
-			);
-			productName = JustTheDogsTests;
-			productReference = 485B68AB2E357982008897EA /* JustTheDogsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		485B68B42E357983008897EA /* JustTheDogsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 485B68C52E357983008897EA /* Build configuration list for PBXNativeTarget "JustTheDogsUITests" */;
-			buildPhases = (
-				485B68B12E357983008897EA /* Sources */,
-				485B68B22E357983008897EA /* Frameworks */,
-				485B68B32E357983008897EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				485B68B72E357983008897EA /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				485B68B82E357983008897EA /* JustTheDogsUITests */,
-			);
-			name = JustTheDogsUITests;
-			packageProductDependencies = (
-			);
-			productName = JustTheDogsUITests;
-			productReference = 485B68B52E357983008897EA /* JustTheDogsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,14 +84,6 @@
 				TargetAttributes = {
 					485B689C2E357981008897EA = {
 						CreatedOnToolsVersion = 16.4;
-					};
-					485B68AA2E357982008897EA = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 485B689C2E357981008897EA;
-					};
-					485B68B42E357983008897EA = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 485B689C2E357981008897EA;
 					};
 				};
 			};
@@ -201,28 +102,12 @@
 			projectRoot = "";
 			targets = (
 				485B689C2E357981008897EA /* JustTheDogs */,
-				485B68AA2E357982008897EA /* JustTheDogsTests */,
-				485B68B42E357983008897EA /* JustTheDogsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		485B689B2E357981008897EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		485B68A92E357982008897EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		485B68B32E357983008897EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,34 +124,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		485B68A72E357982008897EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		485B68B12E357983008897EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		485B68AD2E357982008897EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 485B689C2E357981008897EA /* JustTheDogs */;
-			targetProxy = 485B68AC2E357982008897EA /* PBXContainerItemProxy */;
-		};
-		485B68B72E357983008897EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 485B689C2E357981008897EA /* JustTheDogs */;
-			targetProxy = 485B68B62E357983008897EA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
+
 
 /* Begin XCBuildConfiguration section */
 		485B68BD2E357983008897EA /* Debug */ = {
@@ -437,70 +297,7 @@
 			};
 			name = Release;
 		};
-		485B68C32E357983008897EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.allcre.JustTheDogsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustTheDogs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustTheDogs";
-			};
-			name = Debug;
-		};
-		485B68C42E357983008897EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.allcre.JustTheDogsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustTheDogs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JustTheDogs";
-			};
-			name = Release;
-		};
-		485B68C62E357983008897EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.allcre.JustTheDogsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = JustTheDogs;
-			};
-			name = Debug;
-		};
-		485B68C72E357983008897EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.allcre.JustTheDogsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = JustTheDogs;
-			};
-			name = Release;
-		};
+
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -522,24 +319,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		485B68C22E357983008897EA /* Build configuration list for PBXNativeTarget "JustTheDogsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				485B68C32E357983008897EA /* Debug */,
-				485B68C42E357983008897EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		485B68C52E357983008897EA /* Build configuration list for PBXNativeTarget "JustTheDogsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				485B68C62E357983008897EA /* Debug */,
-				485B68C72E357983008897EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+
 /* End XCConfigurationList section */
 	};
 	rootObject = 485B68952E357981008897EA /* Project object */;
