@@ -38,5 +38,4 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Deb
 ```
 
 ## Credits
-Developed by Allison.
 Uses the [Dog CEO API](https://dog.ceo/dog-api/).
