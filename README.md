@@ -2,7 +2,8 @@
 
 A macOS menu bar application for displaying random dog images.
 
-<img width="1440" height="900" alt="JustTheDogs Screenshot" src="https://github.com/user-attachments/assets/6e801fb4-0f27-4465-b0ad-2f0bd2274f56" />
+<img width="1440" height="900" alt="JustTheDogs Screenshot" src="https://github.com/user-attachments/assets/f087169f-2f5f-4921-9e44-f067d80127e3" />
+
 
 ## Features
 
