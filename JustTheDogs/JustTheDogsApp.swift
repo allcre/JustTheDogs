@@ -9,13 +9,16 @@ import SwiftUI
 
 @main
 struct JustTheDogsApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State private var dogManager = DogManager()
 
     var body: some Scene {
-        // Use Settings scene which doesn't auto-show a window
-        // Perfect for menu bar apps that only show windows on demand
+        MenuBarExtra("JustTheDogs", systemImage: "dog.fill") {
+            ContentView(manager: dogManager)
+        }
+        .menuBarExtraStyle(.window)
+        
         Settings {
-            EmptyView()
+            SettingsView()
         }
     }
 }

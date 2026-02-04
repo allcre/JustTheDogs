@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.xcuserdatad
+*.xcscmblueprint
+*.xccheckout
+
+# Logs
+*.log
+build_output_*.log
+
+# Temp
+docs/PHASE_*_PLAN.md
+docs/IMPROVEMENT_PLAN.md
