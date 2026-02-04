@@ -22,7 +22,15 @@ A macOS menu bar application for displaying random dog images.
 - **ServiceManagement (SMAppService)** for login item registration.
 - **Dog CEO API** for image sourcing.
 
-## Build Instructions
+## Installation
+
+### Download App
+1.  Go to the [Releases](https://github.com/yourusername/JustTheDogs/releases) page.
+2.  Download `JustTheDogs.zip`.
+3.  Unzip and drag `JustTheDogs.app` to your Applications folder.
+4.  **Note:** Since this app is not notarized by Apple, you may need to right-click the app and select **Open** the first time you run it.
+
+## Development
 
 ### Requirements
 - Xcode 15+
@@ -42,5 +50,20 @@ xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Deb
 ./fix_app_icon.sh
 ```
 
+### Packaging for Distribution
+To create a distributable `.zip` file:
+```bash
+# 1. Build Release Version
+xcodebuild -project JustTheDogs.xcodeproj -scheme JustTheDogs -configuration Release -derivedDataPath ./build clean build
+
+# 2. Patch Icon
+./fix_app_icon.sh Release
+
+# 3. Zip it
+cd build/Build/Products/Release
+zip -r ../../../JustTheDogs.zip JustTheDogs.app
+```
+
 ## Credits
+Developed by Allison.
 Uses the [Dog CEO API](https://dog.ceo/dog-api/).

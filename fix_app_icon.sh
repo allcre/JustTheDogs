@@ -1,11 +1,13 @@
 #!/bin/bash
 set -e
 
-APP_PATH="./build/Build/Products/Debug/JustTheDogs.app"
+CONFIG=${1:-Debug}
+APP_PATH="./build/Build/Products/$CONFIG/JustTheDogs.app"
 ICONSET_DIR="build/AppIcon.iconset"
 ICNS_PATH="build/AppIcon.icns"
 
 echo "🐶 JustTheDogs Icon Fixer 🐶"
+echo "Targeting configuration: $CONFIG"
 
 # 1. Generate the images using Swift
 echo "Generating icon images..."
